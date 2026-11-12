@@ -1,0 +1,29 @@
+# Icarus Verilog 编译与仿真产物
+*.vvp
+*.out
+sim.out
+sim_*.out
+*.o
+*.a
+
+# 波形文件
+*.vcd
+*.fst
+*.lxt
+*.lxt2
+*.ghw
+
+# 日志与临时目录
+*.log
+wave/
+build/
+tmp/
+
+# 编辑器 / 操作系统
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
