@@ -19,24 +19,3 @@ Hyper Core 目前的 `imem` 和 `dmem` 是行为级模型：读是组合逻辑�
 
 这个仓库的目标是：把 Hyper Core 的存储器从“理想化”换成“同步 SRAM”，看流水线怎么应对存储器延迟。这会逼我们重新思考 IF 阶段的取指、MEM 阶段的访存、stall 逻辑和 valid 位的对齐。
 
-## 模块规划
-
-### 1. 同步 SRAM
-
-```verilog
-module sram_sync #(
-    parameter DATA_WIDTH = 32,
-    parameter ADDR_WIDTH = 10
-)(
-    input  wire                    clk,
-    input  wire                    we,
-    input  wire [ADDR_WIDTH-1:0]   addr,
-    input  wire [DATA_WIDTH-1:0]   wdata,
-    output reg  [DATA_WIDTH-1:0]   rdata
-);
-    reg [DATA_WIDTH-1:0] mem [0:(1<<ADDR_WIDTH)-1];
-    always @(posedge clk) begin
-        if (we) mem[addr] <= wdata;
-        rdata <= mem[addr];
-    end
-endmodule
