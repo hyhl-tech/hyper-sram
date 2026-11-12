@@ -1,0 +1,27 @@
+# iverilog / vvp 仿真产物
+*.vvp
+*.vcd
+*.out
+
+# iverilog 临时日志（只忽略根目录下的，docs/ 里的保留）
+/tb_*.log
+
+# GTKWave 波形
+*.gtkw
+*.gtkwave
+
+# 综合工具中间文件（如果以后用 Yosys）
+*.json
+*.il
+*.blif
+
+# 编辑器 / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统
+.DS_Store
+Thumbs.db
